@@ -1,8 +1,7 @@
-// index.js
 document.addEventListener('DOMContentLoaded', function() {
     const svgObject = document.getElementById('svg-display');
+    const provinceLabel = document.querySelector('.map-container h2'); // select the <h2>
 
-    // Check if the object element exists
     if (!svgObject) {
         console.error('SVG object element not found');
         return;
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Find all path elements with data-name attribute
             const paths = svgDoc.querySelectorAll('path[data-name]');
             if (paths.length === 0) {
                 console.warn('No paths with data-name found in SVG. Check SVG structure.');
@@ -31,13 +29,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     event.stopPropagation();
                 });
 
-                // Optional: Add visual feedback
                 path.style.cursor = 'pointer';
+
                 path.addEventListener('mouseover', function() {
                     this.style.fill = '#db3939ff';
+                    const provinceName = this.getAttribute('data-name');
+                    provinceLabel.textContent = provinceName; // update the <h4>
                 });
+
                 path.addEventListener('mouseout', function() {
-                    this.style.fill = ''; // Reset to original
+                    this.style.fill = '';
+                    provinceLabel.textContent = "Türkiye"; // reset on mouse out
                 });
             });
 
@@ -47,10 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Check if SVG loaded correctly
     setTimeout(() => {
         if (!svgObject.contentDocument && !svgObject.getSVGDocument()) {
             console.error('SVG failed to load. Check file path or CORS issues.');
         }
-    }, 1000); // Delay to ensure load attempt
+    }, 1000);
 });

@@ -7,7 +7,9 @@
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/table.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/js/index.js" defer></script>
+    <script src="./assets/js/provinces.js" defer></script>
 </head>
 <body>
     <main class="container">
@@ -16,10 +18,13 @@
         </header>
         
         <section class="map-container">
+            <h1>Türkiye Nüfus Haritası</h1>
             <!-- This will display your SVG file -->
             <object id="svg-display" data="./map.svg" type="image/svg+xml">
                 Your browser doesn't support SVG display
             </object>
+            <h2 id="province-label">Türkiye</h2>
+            <br>
         </section>
 
         <section class="mainTable">
@@ -36,35 +41,7 @@
                     <th>2007</th>
                 </tr>
                 </thead>
-                <tbody>
-                <!-- example empty row (remove or duplicate as needed) -->
-                <tr>
-                    <td data-label="col1">fwefwef</td>
-                    <td data-label="col2">wefwef</td>
-                    <td data-label="col3">wefwef</td>
-                    <td data-label="col4">wefwef</td>
-                    <td data-label="col5">wefwef</td>
-                    <td data-label="col6">wefwef</td>
-                    <td data-label="col5">wefwef</td>
-                    <td data-label="col6">wefwef</td>
-                </tr>
-                                <tr>
-                    <td data-label="col1">fwefwef</td>
-                    <td data-label="col2">wefwef</td>
-                    <td data-label="col3">wefwef</td>
-                    <td data-label="col4">wefwef</td>
-                    <td data-label="col5">wefwef</td>
-                    <td data-label="col6">wefwef</td>
-                </tr>
-                                <tr>
-                    <td data-label="col1">fwefwef</td>
-                    <td data-label="col2">wefwef</td>
-                    <td data-label="col3">wefwef</td>
-                    <td data-label="col4">wefwef</td>
-                    <td data-label="col5">wefwef</td>
-                    <td data-label="col6">wefwef</td>
-                </tr>
-                </tbody>
+                <tbody id="provinces-table-body"></tbody>
             </table>
         </section>
 

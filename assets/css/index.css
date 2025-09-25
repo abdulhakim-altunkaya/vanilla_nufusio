@@ -58,6 +58,7 @@ Baumans*/
         header h1 {
             margin: 0px;
             padding: 0px;
+            font-family: "Carter One";
         }
         .titleText {
             font-family: "Carter One", 'Trebuchet MS';
@@ -68,14 +69,21 @@ Baumans*/
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         .map-container {
-            width: 100%;
+            width: 90%;
             margin: auto;
             text-align: center;
+        }
+        .map-container h1 {
+            font-family: "Paytone One";
         }
         #svg-display {
             border: 1px solid #ddd;
             border-radius: 5px;
             overflow: hidden;
+        }
+        .mainTable {
+            width: 90%;
+            margin: auto;
         }
         
     .footerArea {
