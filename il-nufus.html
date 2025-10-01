@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaç Milyon?</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/table.css">
+    <link rel="stylesheet" href="./assets/css/provinceSingle.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/index.js" defer></script>
+    <script src="./assets/js/map-interactions.js" defer></script>
+    <script src="./assets/js/provinceSingle.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1><a href="index.html"><span class="titleText">Kaç milyon?</span></a></h1>
+        </header>
+        
+        <section class="map-container">
+            <h1>Türkiye Nüfus Haritası</h1>
+            <!-- This will display your SVG file -->
+            <object id="svg-display" data="./map.svg" type="image/svg+xml">
+                Your browser doesn't support SVG display
+            </object>
+            <h2 id="province-label">Türkiye</h2>
+            <br>
+        </section>
+
+        <section class="mainTable">
+            <table class="province-details-table" role="table" aria-label="İL İLÇE NÜFUS TABLOSU">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>İL</th>
+                    <th>İLÇE</th>
+                    <th>2024</th>
+                    <th>2023</th>
+                    <th>2022</th>
+                    <th>2015</th>
+                    <th>2011</th>
+                    <th>2007</th>
+                </tr>
+                </thead>
+                <tbody id="province-details-table-body"></tbody>
+            </table>
+        </section>
+
+        <footer class="footerArea">
+            <a href="https://visacalculator.org/about.html">
+                <img class="footerIcon" src="./assets/images/tory.png" alt="Schengen Calculator developer profile icon">
+            </a>
+            <p>📢 Interested in advertising? 
+                <a href="https://visacalculator.org/about.html"><strong>Click</strong></a> for about us and partnerships.
+            </p>
+        </footer>
+    </main>
+</body>
+</html>

@@ -49,6 +49,9 @@ Baumans*/
             background-color: white;
             min-height: 100vh;
         }
+        .container a {
+            text-decoration: none;
+        }
         
         header {
             margin: 0px;
@@ -75,11 +78,6 @@ Baumans*/
         }
         .map-container h1 {
             font-family: "Paytone One";
-        }
-        #svg-display {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
         }
         .mainTable {
             width: 90%;

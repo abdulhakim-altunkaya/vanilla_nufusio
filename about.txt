@@ -12,3 +12,7 @@ Visitor log system
 DEFERRED:
 Add one more technical converter
 Add two more medical converter
+
+
+
+    <script src="./assets/js/provinces.js" defer></script>

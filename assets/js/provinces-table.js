@@ -1,13 +1,17 @@
-//ProvinceApp here is a namespace which helps us to prevent getProvincesData and renderProvinces
-//do not leak into global scope of the app at the same time.
-const ProvincesApp = (() => {
+document.addEventListener('DOMContentLoaded', () => {
+  // Only run on index page (check for unique element)
+  const isIndexPage = !!document.getElementById('provinces-table-body');
+  
+  if (!isIndexPage) {
+    return; // Skip entirely
+  }
+
   const getProvincesData = async () => {
     try {
       const response = await axios.get("https://www.eumaps.org/api/kac-milyon/get-provinces");
       const { resStatus, resData, resMessage } = response.data;
 
       if (resStatus && Array.isArray(resData)) {
-        console.log("✅ Provinces fetched with Namespace:", resData);
         renderProvinces(resData);
       } else {
         console.warn("⚠️ API returned error:", resMessage);
@@ -18,9 +22,6 @@ const ProvincesApp = (() => {
   };
 
   const renderProvinces = (provinces) => {
-    console.log("Rendering provinces:", provinces);
-    console.log("First item keys:", Object.keys(provinces[0] || {}));
-
     const tableBody = document.getElementById("provinces-table-body");
     if (!tableBody) {
       console.error("❌ No element with id 'provinces-table-body' found!");
@@ -33,7 +34,10 @@ const ProvincesApp = (() => {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${index + 1}</td>
-        <td>${province.provincename}</td>
+        <td><a href="il-nufus.html?provinceId=${province.provinceid}">
+          ${province.provincename}
+        </a>
+        </td>
         <td>${formatNumber(province["2024"])}</td>
         <td>${formatNumber(province["2023"])}</td>
         <td>${formatNumber(province["2022"])}</td>
@@ -44,11 +48,12 @@ const ProvincesApp = (() => {
       tableBody.appendChild(row);
     });
   };
+  
   const formatNumber = (value) => {
     if (value === null || value === undefined) return "-";
     return Number(value).toLocaleString("tr-TR");
   };
 
-  // run on load
+  // Run only on index
   getProvincesData();
-})();
+});
