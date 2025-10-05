@@ -4,7 +4,7 @@
         margin: auto;
     }
         
-    .province-districts-table {
+    .province-annual-table {
       width: 100%;
       border-collapse: collapse;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
@@ -13,39 +13,39 @@
     }
 
     /* Header */
-    .province-districts-table thead th {
+    .province-annual-table thead th {
       text-align: left;
       padding: 10px 12px;
       border-bottom: 2px solid #e6e6e6;
       font-weight: 600;
-      background: linear-gradient(180deg,#b2e3c8,#7ab68b);
+      background: linear-gradient(180deg,#b69cb7,#ac78a2);
       font-weight: bold;
     }
 
     /* Body rows */
-    .province-districts-table tbody td {
+    .province-annual-table tbody td {
       padding: 10px 12px;
       border-bottom: 1px solid #f0f0f0;
     }
 
     /* Zebra striping */
-    .province-districts-table tbody tr:nth-child(odd) {
+    .province-annual-table tbody tr:nth-child(odd) {
       background: #ffffff;
     }
-    .province-districts-table tbody tr:nth-child(even) {
+    .province-annual-table tbody tr:nth-child(even) {
       background: #f5f5d5;
     }
 
     /* Small responsive tweak */
     @media (max-width: 600px) {
-      .province-districts-table thead { display: none; }
-      .province-districts-table, .province-districts-table tbody, .province-districts-table tr, .province-districts-table td { display: block; width: 100%; }
-      .province-districts-table td {
+      .province-annual-table thead { display: none; }
+      .province-annual-table, .province-annual-table tbody, .province-annual-table tr, .province-annual-table td { display: block; width: 100%; }
+      .province-annual-table td {
         box-sizing: border-box;
         padding: 8px;
         border-bottom: 1px solid #eee;
       }
-      .province-districts-table td::before {
+      .province-annual-table td::before {
         content: attr(data-label);
         display: block;
         font-weight: 600;

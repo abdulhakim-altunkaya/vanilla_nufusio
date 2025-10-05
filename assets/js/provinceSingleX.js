@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const tbody = document.getElementById('province-districts-table-body');
   const annualTbody = document.getElementById('province-annual-table-body');
-  const originsTbody = document.getElementById('province-origins-table-body');
   const provinceLabel = document.getElementById('province-label');
-  const originsTitle = document.querySelector('.provinceAnnualTableArea:last-of-type h3');
 
-  if (!tbody || !annualTbody || !originsTbody) {
+  if (!tbody || !annualTbody) {
     console.error('Table bodies not found');
     return;
   }
@@ -65,59 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Helper to populate origins table (people from selected province living in other provinces)
-  const populateOriginsTable = (originsData) => {
-    originsTbody.innerHTML = '';
-
-    if (!originsData) {
-      originsTbody.innerHTML = '<tr><td colspan="3">No origins data available</td></tr>';
-      return;
-    }
-
-    const originName = originsData.provincename || 'Unknown Province';
-
-    // Update the dynamic header for the third column (e.g., "Mersinliler")
-    const header = document.querySelector('.province-origins-table thead tr th:nth-child(3)');
-    if (header) {
-      const lastTwoChars = originName.slice(-2).toLowerCase();
-      let suffix = 'liler'; // default
-      if (lastTwoChars.includes('a') || lastTwoChars.includes('ı')) {
-        suffix = 'lılar';
-      } else if (lastTwoChars.includes('e') || lastTwoChars.includes('i')) {
-        suffix = 'liler';
-      } else if (lastTwoChars.includes('ö') || lastTwoChars.includes('ü')) {
-        suffix = 'lüler';
-      } else if (lastTwoChars.includes('o') || lastTwoChars.includes('u')) {
-        suffix = 'lular';
-      }
-      header.textContent = `${originName}${suffix}`;
-      originsTitle.textContent = `${originName}${suffix} en çok hangi ilde yaşıyor?`;
-    }
-
-
-
-    // Filter entries to only residence provinces (exclude basic info and total)
-    const entries = Object.entries(originsData).filter(([key]) => 
-      !['provinceid', 'provincename', 'originPopulation'].includes(key)
-    );
-
-    if (entries.length === 0) {
-      originsTbody.innerHTML = '<tr><td colspan="3">No origins distribution data</td></tr>';
-      return;
-    }
-
-    // Already sorted descending by the backend
-    entries.forEach(([residenceName, count], index) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${index + 1}</td>
-        <td>${residenceName}</td>
-        <td>${formatNumber(count)}</td>
-      `;
-      originsTbody.appendChild(tr);
-    });
-  };
-
   // Helper to format numbers Turkish-style (e.g., 1234567 → 1.234.567)
   const formatNumber = (value) => {
     if (!value || isNaN(parseInt(value))) return '';
@@ -130,21 +75,18 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn('No provinceId provided');
       tbody.innerHTML = '<tr><td colspan="9">No province selected</td></tr>';
       annualTbody.innerHTML = '<tr><td colspan="3">No province selected</td></tr>';
-      originsTbody.innerHTML = '<tr><td colspan="3">No province selected</td></tr>';
       return;
     }
 
     const districtsUrl = `https://www.eumaps.org/api/kac-milyon/get-districts/${provinceId}`;
     const provinceUrl = `https://www.eumaps.org/api/kac-milyon/get-province/${provinceId}`;
     const foreignersUrl = `https://www.eumaps.org/api/kac-milyon/get-province-foreigners/${provinceId}`;
-    const originsUrl = `https://www.eumaps.org/api/kac-milyon/get-province-origins/${provinceId}`;
 
     try {
-      const [districtsRes, provinceRes, foreignersRes, originsRes] = await Promise.all([
+      const [districtsRes, provinceRes, foreignersRes] = await Promise.all([
         axios.get(districtsUrl),
         axios.get(provinceUrl),
-        axios.get(foreignersUrl),
-        axios.get(originsUrl)
+        axios.get(foreignersUrl)
       ]);
 
       // Handle districts table
@@ -165,19 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!foreignersRes.data.resStatus) msg += ' - Foreigners data missing';
         annualTbody.innerHTML = `<tr><td colspan="3">${msg}</td></tr>`;
       }
-
-      // Handle origins table
-      if (originsRes.data.resStatus && originsRes.data.resData && originsRes.data.resData.length > 0) {
-        populateOriginsTable(originsRes.data.resData[0]);
-      } else {
-        console.warn('Origins API error:', originsRes.data.resMessage);
-        originsTbody.innerHTML = `<tr><td colspan="3">${originsRes.data.resMessage || 'Origins data not found'}</td></tr>`;
-      }
     } catch (error) {
       console.error('Failed to fetch data:', error);
       tbody.innerHTML = '<tr><td colspan="9">Error loading district data</td></tr>';
       annualTbody.innerHTML = '<tr><td colspan="3">Error loading annual data</td></tr>';
-      originsTbody.innerHTML = '<tr><td colspan="3">Error loading origins data</td></tr>';
     }
   };
 
@@ -191,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial placeholders
     tbody.innerHTML = '<tr><td colspan="9">Select a province on the map or add ?provinceId=34 to URL</td></tr>';
     annualTbody.innerHTML = '<tr><td colspan="3">Select a province to view annual population data</td></tr>';
-    originsTbody.innerHTML = '<tr><td colspan="3">Select a province to view origins distribution</td></tr>';
   }
 
   // Listen for map events

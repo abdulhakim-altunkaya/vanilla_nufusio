@@ -1,18 +1,10 @@
-SEO: Add JSON-LD
-
-DONE:
-Add description and keywords tags
-Move js to their respective files
-DEPLOYMENT: Netlify purchase
-DEPLOYMENT: Namecheap purchase
-DEPLOYMENT: Netlify-Namecheap connection
-SEO: Create sitemap and robots
-Visitor log system
-
-DEFERRED:
-Add one more technical converter
-Add two more medical converter
-
-
-
-    <script src="./assets/js/provinces.js" defer></script>
+https://biruni.tuik.gov.tr/medas/?locale=tr
+Konu: Adrese dayalı nüfus kayıt sistemi sonuçları
+Ölçüm: İkamet edilen ile göre nüfusa kayıtlı olunan il
+Kırılım: nüfusa kayıtlı olunan il
+Kırılımlar: hepsi
+Click: Göstergeleri ekle
+Click: ileri
+Click: Year 2024
+Click: Düzey
+Click: rapor oluştur

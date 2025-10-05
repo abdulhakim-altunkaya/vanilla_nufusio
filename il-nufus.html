@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/table.css">
     <link rel="stylesheet" href="./assets/css/provinceSingle.css">
+    <link rel="stylesheet" href="./assets/css/provinceSingle2.css">
+    <link rel="stylesheet" href="./assets/css/provinceSingle3.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/js/index.js" defer></script>
     <script src="./assets/js/map-interactions.js" defer></script>
     <script src="./assets/js/provinceSingle.js" defer></script>
+    
 </head>
 <body>
     <main class="container">
@@ -29,8 +32,9 @@
             <br>
         </section>
 
-        <section class="mainTable">
-            <table class="province-details-table" role="table" aria-label="İL İLÇE NÜFUS TABLOSU">
+        <section class="provinceAnnualTableArea">
+            <h3>İl ve İlçe Nüfus Tablosu</h3>
+            <table class="province-districts-table" role="table" aria-label="İL İLÇE NÜFUS TABLOSU">
                 <thead>
                 <tr>
                     <th></th>
@@ -44,7 +48,35 @@
                     <th>2007</th>
                 </tr>
                 </thead>
-                <tbody id="province-details-table-body"></tbody>
+                <tbody id="province-districts-table-body"></tbody>
+            </table>
+        </section>
+
+        <section class="provinceAnnualTableArea">
+            <h3>Yıllara göre Toplam ve Yabancı Nüfus</h3>
+            <table class="province-annual-table" role="table" aria-label="YILLARA GÖRE İL NÜFUS VE YABANCI NÜFUS TABLOSU">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Toplam Nüfus</th>
+                    <th>Yabancılar</th>
+                </tr>
+                </thead>
+                <tbody id="province-annual-table-body"></tbody>
+            </table>
+        </section>
+
+        <section class="provinceAnnualTableArea">
+            <h3>en çok hangi ilde yaşıyor?</h3>
+            <table class="province-origins-table" role="table" aria-label="HEMŞERİ NÜFUS TABLOSU">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>İLLER</th>
+                    <th>Hemşeriler</th>
+                </tr>
+                </thead>
+                <tbody id="province-origins-table-body"></tbody>
             </table>
         </section>
 

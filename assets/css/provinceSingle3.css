@@ -4,7 +4,7 @@
         margin: auto;
     }
         
-    .province-districts-table {
+    .province-origins-table {
       width: 100%;
       border-collapse: collapse;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
@@ -13,39 +13,39 @@
     }
 
     /* Header */
-    .province-districts-table thead th {
+    .province-origins-table thead th {
       text-align: left;
       padding: 10px 12px;
       border-bottom: 2px solid #e6e6e6;
       font-weight: 600;
-      background: linear-gradient(180deg,#b2e3c8,#7ab68b);
+      background: linear-gradient(180deg,#9caad9,#839adb);
       font-weight: bold;
     }
 
     /* Body rows */
-    .province-districts-table tbody td {
+    .province-origins-table tbody td {
       padding: 10px 12px;
       border-bottom: 1px solid #f0f0f0;
     }
 
     /* Zebra striping */
-    .province-districts-table tbody tr:nth-child(odd) {
+    .province-origins-table tbody tr:nth-child(odd) {
       background: #ffffff;
     }
-    .province-districts-table tbody tr:nth-child(even) {
+    .province-origins-table tbody tr:nth-child(even) {
       background: #f5f5d5;
     }
 
     /* Small responsive tweak */
     @media (max-width: 600px) {
-      .province-districts-table thead { display: none; }
-      .province-districts-table, .province-districts-table tbody, .province-districts-table tr, .province-districts-table td { display: block; width: 100%; }
-      .province-districts-table td {
+      .province-origins-table thead { display: none; }
+      .province-origins-table, .province-origins-table tbody, .province-origins-table tr, .province-origins-table td { display: block; width: 100%; }
+      .province-origins-table td {
         box-sizing: border-box;
         padding: 8px;
         border-bottom: 1px solid #eee;
       }
-      .province-districts-table td::before {
+      .province-origins-table td::before {
         content: attr(data-label);
         display: block;
         font-weight: 600;
