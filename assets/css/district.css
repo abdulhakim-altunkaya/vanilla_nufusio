@@ -1,7 +1,7 @@
     /* Table reset + layout */
     .districtAnnualTableArea {
-        width: 90%;
-        margin: auto;
+        width: 30%;
+        margin-left: 65px;
     }
     .districtAnnualTableArea h3 {
       font-family: "Maven Pro";
