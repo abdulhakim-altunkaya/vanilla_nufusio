@@ -1,12 +1,15 @@
     /* Table reset + layout */
-    .provinceOriginsTableArea {
+    .countryTableArea3 {
         width: 40%;
         margin-left: 65px;
     }
-    .provinceOriginsTableArea h3 {
+
+    .countryTableArea3 h3 {
       font-family: "Maven Pro";
     }
-    .province-origins-table { 
+
+        
+    .country-civil-status-table { 
       width: 100%;
       border-collapse: collapse;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
@@ -15,39 +18,40 @@
     }
 
     /* Header */
-    .province-origins-table thead th {
+    .country-civil-status-table thead th {
       text-align: left;
       padding: 10px 12px;
       border-bottom: 2px solid #e6e6e6;
       font-weight: 600;
-      background: linear-gradient(180deg,#9caad9,#839adb);
+      background: rgb(82, 5, 40);
+      color: white;
       font-weight: bold;
     }
 
     /* Body rows */
-    .province-origins-table tbody td {
+    .country-civil-status-table tbody td {
       padding: 10px 12px;
       border-bottom: 1px solid #f0f0f0;
     }
 
     /* Zebra striping */
-    .province-origins-table tbody tr:nth-child(odd) {
+    .country-civil-status-table tbody tr:nth-child(odd) {
       background: #ffffff;
     }
-    .province-origins-table tbody tr:nth-child(even) {
+    .country-civil-status-table tbody tr:nth-child(even) {
       background: #f5f5d5;
     }
 
     /* Small responsive tweak */
     @media (max-width: 600px) {
-      .province-origins-table thead { display: none; }
-      .province-origins-table, .province-origins-table tbody, .province-origins-table tr, .province-origins-table td { display: block; width: 100%; }
-      .province-origins-table td {
+      .country-civil-status-table thead { display: none; }
+      .country-civil-status-table, .country-civil-status-table tbody, .country-civil-status-table tr, .country-civil-status-table td { display: block; width: 100%; }
+      .country-civil-status-table td {
         box-sizing: border-box;
         padding: 8px;
         border-bottom: 1px solid #eee;
       }
-      .province-origins-table td::before {
+      .country-civil-status-table td::before {
         content: attr(data-label);
         display: block;
         font-weight: 600;

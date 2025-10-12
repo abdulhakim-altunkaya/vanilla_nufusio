@@ -7,9 +7,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/table.css">
-    <link rel="stylesheet" href="./assets/css/provinceSingle.css">
-    <link rel="stylesheet" href="./assets/css/provinceSingle2.css">
-    <link rel="stylesheet" href="./assets/css/provinceSingle3.css">
+    <link rel="stylesheet" href="./assets/css/district.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/js/index.js" defer></script>
     <script src="./assets/js/map-interactions.js" defer></script>
@@ -31,52 +29,18 @@
             <h2 id="province-label">Türkiye</h2>
             <br>
         </section>
-        
-        <section class="provinceDistrictsTableArea">
-            <h3>İl ve İlçe Nüfus Tablosu</h3>
-            <table class="province-districts-table" role="table" aria-label="İL İLÇE NÜFUS TABLOSU">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>İL</th>
-                    <th>İLÇE</th>
-                    <th>2024</th>
-                    <th>2023</th>
-                    <th>2022</th>
-                    <th>2015</th>
-                    <th>2011</th>
-                    <th>2007</th>
-                </tr>
-                </thead>
-                <tbody id="province-districts-table-body"></tbody>
-            </table>
-        </section>
+    
 
-        <section class="provinceAnnualTableArea">
-            <h3>Yıllara göre Toplam ve Yabancı Nüfus</h3>
-            <table class="province-annual-table" role="table" aria-label="YILLARA GÖRE İL NÜFUS VE YABANCI NÜFUS TABLOSU">
+        <section class="districtAnnualTableArea">
+            <h3>Yıllara ilçe göre nüfus</h3>
+            <table class="district-annual-table" role="table" aria-label="YILLARA GÖRE İLÇE NÜFUS TABLOSU">
                 <thead>
                 <tr>
                     <th></th>
-                    <th>Toplam Nüfus</th>
-                    <th>Yabancılar</th>
+                    <th>Nüfus</th>
                 </tr>
                 </thead>
-                <tbody id="province-annual-table-body"></tbody>
-            </table>
-        </section>
-
-        <section class="provinceOriginsTableArea">
-            <h3>en çok hangi ilde yaşıyor?</h3>
-            <table class="province-origins-table" role="table" aria-label="HEMŞERİ NÜFUS TABLOSU">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>İLLER</th>
-                    <th>Hemşeriler</th>
-                </tr>
-                </thead>
-                <tbody id="province-origins-table-body"></tbody>
+                <tbody id="district-annual-table-body"></tbody>
             </table>
         </section>
 

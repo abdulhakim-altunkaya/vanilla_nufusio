@@ -1,12 +1,13 @@
     /* Table reset + layout */
-    .provinceOriginsTableArea {
-        width: 40%;
-        margin-left: 65px;
+    .districtAnnualTableArea {
+        width: 90%;
+        margin: auto;
     }
-    .provinceOriginsTableArea h3 {
+    .districtAnnualTableArea h3 {
       font-family: "Maven Pro";
     }
-    .province-origins-table { 
+        
+    .district-annual-table {
       width: 100%;
       border-collapse: collapse;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
@@ -15,39 +16,43 @@
     }
 
     /* Header */
-    .province-origins-table thead th {
+    .district-annual-table thead th {
       text-align: left;
       padding: 10px 12px;
       border-bottom: 2px solid #e6e6e6;
       font-weight: 600;
-      background: linear-gradient(180deg,#9caad9,#839adb);
+      background: linear-gradient(180deg,#b2e3c8,#7ab68b);
       font-weight: bold;
     }
 
     /* Body rows */
-    .province-origins-table tbody td {
+    .district-annual-table tbody td {
       padding: 10px 12px;
       border-bottom: 1px solid #f0f0f0;
     }
 
     /* Zebra striping */
-    .province-origins-table tbody tr:nth-child(odd) {
+    .district-annual-table tbody tr:nth-child(odd) {
       background: #ffffff;
     }
-    .province-origins-table tbody tr:nth-child(even) {
+    .district-annual-table tbody tr:nth-child(even) {
       background: #f5f5d5;
+    }
+    .district-annual-table tbody tr:hover {
+      cursor: pointer;
+      background-color: lightsteelblue;
     }
 
     /* Small responsive tweak */
     @media (max-width: 600px) {
-      .province-origins-table thead { display: none; }
-      .province-origins-table, .province-origins-table tbody, .province-origins-table tr, .province-origins-table td { display: block; width: 100%; }
-      .province-origins-table td {
+      .district-annual-table thead { display: none; }
+      .district-annual-table, .district-annual-table tbody, .district-annual-table tr, .district-annual-table td { display: block; width: 100%; }
+      .district-annual-table td {
         box-sizing: border-box;
         padding: 8px;
         border-bottom: 1px solid #eee;
       }
-      .province-origins-table td::before {
+      .district-annual-table td::before {
         content: attr(data-label);
         display: block;
         font-weight: 600;

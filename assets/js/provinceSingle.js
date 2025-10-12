@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const annualTbody = document.getElementById('province-annual-table-body');
   const originsTbody = document.getElementById('province-origins-table-body');
   const provinceLabel = document.getElementById('province-label');
-  const originsTitle = document.querySelector('.provinceAnnualTableArea:last-of-type h3');
+  const originsTitle = document.querySelector('.provinceOriginsTableArea h3');
 
   if (!tbody || !annualTbody || !originsTbody) {
     console.error('Table bodies not found');
@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>${formatNumber(district['2011'] || '')}</td>
         <td>${formatNumber(district['2007'] || '')}</td>
       `;
+      tr.addEventListener('click', () => {
+        window.location.href = `http://127.0.0.1:8080/ilce-nufus.html?districtId=${district.id}`;
+      });
       tbody.appendChild(tr);
     });
   };

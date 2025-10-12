@@ -8,3 +8,12 @@ Click: ileri
 Click: Year 2024
 Click: Düzey
 Click: rapor oluştur
+
+
+Türkiye İstatistik Kurumu (TÜİK Biruni)
+wikipedia.org
+
+
+Make sure you change all localhost or relative routes ("./about.html", etc) to eumaps.org
+To do this, search by "html" keyword on each file. Js and html and css even. All files
+
