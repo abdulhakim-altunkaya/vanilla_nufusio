@@ -1,0 +1,54 @@
+.comment-display {
+    padding: 20px;
+    width: 40%;
+    margin-left: 65px;
+    margin-top: 25px;
+    background-color: #fefefe;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: "Nunito";
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.comment-display h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment-item {
+    background-color: #f4f6f8;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.comment-item .comment-author {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 6px;
+}
+
+.comment-item .comment-text {
+    color: #333;
+    line-height: 1.4;
+    font-family: "Maven Pro";
+}
+
+.comment-item .comment-date {
+    font-size: 13px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.no-comments {
+    text-align: center;
+    color: #888;
+}
