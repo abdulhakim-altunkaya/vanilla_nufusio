@@ -1,0 +1,49 @@
+.comment-section {
+    padding: 20px;
+    width: 40%;
+    margin-left: 65px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: "Nunito";
+}
+.comment-section h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+#comment-form {
+    display: flex;
+    flex-direction: column;
+}
+#comment-form label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+#comment-form input, #comment-form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: "Maven Pro";
+}
+#comment-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+#comment-form button {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#comment-form button:hover {
+    background-color: #0056b3;
+}

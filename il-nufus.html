@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="./assets/css/provinceSingle.css">
     <link rel="stylesheet" href="./assets/css/provinceSingle2.css">
     <link rel="stylesheet" href="./assets/css/provinceSingle3.css">
+    <link rel="stylesheet" href="./assets/css/comment.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/js/index.js" defer></script>
     <script src="./assets/js/map-interactions.js" defer></script>
     <script src="./assets/js/provinceSingle.js" defer></script>
-    
+    <script src="./assets/js/comment.js" defer></script>
 </head>
 <body>
     <main class="container">
@@ -78,6 +79,20 @@
                 </thead>
                 <tbody id="province-origins-table-body"></tbody>
             </table>
+        </section>
+
+        <section class="comment-section">
+            <h3>Yorum Bırakın</h3>
+            <form id="comment-form">
+                <label for="name">Ad Soyad:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="message">Mesaj:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Gönder</button>
+            </form>
+            <p id="comment-response" style="margin-top:10px;font-weight:bold;"></p>
         </section>
 
         <footer class="footerArea">
