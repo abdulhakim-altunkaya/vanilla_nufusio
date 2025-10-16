@@ -1,6 +1,6 @@
     /* Table reset + layout */
     .provinceOriginsTableArea {
-        width: 40%;
+        width: 30%;
         margin-left: 65px;
     }
     .provinceOriginsTableArea h3 {
@@ -8,10 +8,9 @@
     }
     .province-origins-table { 
       width: 100%;
-      border-collapse: collapse;
+      border:3px solid white;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
       background: #fff;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.14);
     }
 
     /* Header */
@@ -20,23 +19,28 @@
       padding: 10px 12px;
       border-bottom: 2px solid #e6e6e6;
       font-weight: 600;
-      background: linear-gradient(180deg,#9caad9,#839adb);
+      background: #02343F;
+      color:#F0EDCC;
       font-weight: bold;
     }
 
     /* Body rows */
     .province-origins-table tbody td {
       padding: 10px 12px;
-      border-bottom: 1px solid #f0f0f0;
+      border-bottom: 1px solid white;
+    }
+    .province-origins-table tbody tr {
+      background-color: #F0EDCC;
+      color: #02343F;
     }
 
-    /* Zebra striping */
-    .province-origins-table tbody tr:nth-child(odd) {
+    /*
+   .province-origins-table tbody tr:nth-child(odd) {
       background: #ffffff;
     }
     .province-origins-table tbody tr:nth-child(even) {
       background: #f5f5d5;
-    }
+    } */
 
     /* Small responsive tweak */
     @media (max-width: 600px) {

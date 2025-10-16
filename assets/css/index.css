@@ -86,7 +86,11 @@ Baumans*/
             width: 90%;
             margin: auto;
         }
-        
+        .twoTables {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
     .footerArea {
         padding: 15px;
         border-top:#000000 5px double;

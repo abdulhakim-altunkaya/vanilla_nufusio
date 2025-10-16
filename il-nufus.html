@@ -27,10 +27,10 @@
         
         <section class="map-container">
             <h1>Türkiye Nüfus Haritası</h1>
-            <!-- This will display your SVG file -->
-            <object id="svg-display" data="./map.svg" type="image/svg+xml">
-                Your browser doesn't support SVG display
-            </object>
+                <!-- This will display your SVG file -->
+                <object id="svg-display" data="./map.svg" type="image/svg+xml">
+                    Your browser doesn't support SVG display
+                </object>
             <h2 id="province-label">Türkiye</h2>
             <br>
         </section>
@@ -55,32 +55,34 @@
             </table>
         </section>
 
-        <section class="provinceAnnualTableArea">
-            <h3>Yıllara göre Toplam ve Yabancı Nüfus</h3>
-            <table class="province-annual-table" role="table" aria-label="YILLARA GÖRE İL NÜFUS VE YABANCI NÜFUS TABLOSU">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>Toplam Nüfus</th>
-                    <th>Yabancılar</th>
-                </tr>
-                </thead>
-                <tbody id="province-annual-table-body"></tbody>
-            </table>
-        </section>
+        <section class="twoTables">
+            <section class="provinceOriginsTableArea">
+                <h3>en çok hangi ilde yaşıyor?</h3>
+                <table class="province-origins-table" role="table" aria-label="HEMŞERİ NÜFUS TABLOSU">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>İLLER</th>
+                            <th>Hemşeriler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="province-origins-table-body"></tbody>
+                </table>
+            </section>
 
-        <section class="provinceOriginsTableArea">
-            <h3>en çok hangi ilde yaşıyor?</h3>
-            <table class="province-origins-table" role="table" aria-label="HEMŞERİ NÜFUS TABLOSU">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>İLLER</th>
-                    <th>Hemşeriler</th>
-                </tr>
-                </thead>
-                <tbody id="province-origins-table-body"></tbody>
-            </table>
+            <section class="provinceAnnualTableArea">
+                <h3>Yıllara göre Toplam ve Yabancı Nüfus</h3>
+                <table class="province-annual-table" role="table" aria-label="YILLARA GÖRE İL NÜFUS VE YABANCI NÜFUS TABLOSU">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Toplam Nüfus</th>
+                            <th>Yabancılar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="province-annual-table-body"></tbody>
+                </table>
+            </section>
         </section>
 
         <section class="comment-section">
@@ -98,7 +100,6 @@
         </section>
 
         <section class="comment-display">
-            <h3>Yorumlar</h3>
             <div id="comment-list">
                 <p class="no-comments">Henüz yorum yok.</p>
             </div>

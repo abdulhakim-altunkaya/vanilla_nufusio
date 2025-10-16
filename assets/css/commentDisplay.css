@@ -3,12 +3,14 @@
     width: 40%;
     margin-left: 65px;
     margin-top: 25px;
-    background-color: #fefefe;
+    background-color: #f8f2f4;
+    color: #333D79;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    font-family: "Nunito";
-    max-height: 350px;
+    box-shadow: 0 4px 8px rgba(0,0.4,0.4,0.4);
+    font-family: "Maven pro";
+    /*max-height: 350px;
     overflow-y: auto;
+    */
 }
 
 .comment-display h3 {
@@ -24,15 +26,18 @@
 }
 
 .comment-item {
-    background-color: #f4f6f8;
-    padding: 12px 15px;
-    border-radius: 6px;
-    border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3); /* faint gray line */
+}
+
+.comment-item-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .comment-item .comment-author {
     font-weight: bold;
-    color: #007bff;
     margin-bottom: 6px;
 }
 
@@ -52,3 +57,94 @@
     text-align: center;
     color: #888;
 }
+
+/*REPLIES LIST AREA*/
+.reply {
+  margin-left: 20px;
+  border-left: 2px solid #ccc;
+  padding: 7px;
+  background: white;
+  border-radius: 4px;
+  margin-top: 6px;
+  font-size: 12px;
+}
+.reply-header {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+.reply-header .reply-date {
+  font-weight: normal;
+  color: #666;
+  margin-left: 4px;
+}
+.reply-text {
+  margin-top: 2px;
+  white-space: pre-wrap;
+}
+.reply-btn {
+  background-color: #4b97fc;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font-family: Ubuntu;
+  font-size: 17px;
+  margin-top: 7px;
+  padding: 5px 10px;
+}
+
+/* REPLY FORM AREA */
+.reply-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  font-family: "Maven Pro", sans-serif;
+}
+
+.replyFormName,
+.replyFormText {
+  font-family: "Maven Pro", sans-serif;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 6px;
+  padding: 4px 6px;
+  resize: none;              /* prevent resizing */
+  outline: none;             /* remove default outline */
+  transition: border-color 0.2s ease;
+}
+
+.replyFormName {
+  height: 24px;              /* one-line input */
+}
+
+.replyFormText {
+  margin-top: 8px;
+  min-height: 40px;
+  max-height: 40px;          /* fixed height */
+  font-size: 14px;
+}
+
+/* Optional: subtle hover/focus effect without outline */
+.replyFormName:focus,
+.replyFormText:focus {
+  border-color: #4b97fc;
+  box-shadow: 0 0 3px rgba(75, 151, 252, 0.3);
+}
+
+/* Submit button */
+.replyFormBtn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4b97fc;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Maven Pro", sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.replyFormBtn:hover {
+  background-color: #387de0;
+}
+
