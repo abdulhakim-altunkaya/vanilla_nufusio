@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (res.data.resStatus && Array.isArray(res.data.resData) && res.data.resData.length > 0) {
       commentList.innerHTML = "";
 
-      const allComments = res.data.resData;
+      const allComments = res.data.resData.reverse();
       const topComments = allComments.filter(c => c.parent_id === null);
       const replies = allComments.filter(c => c.parent_id !== null);
 
@@ -103,8 +103,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const form = document.createElement("form");
     form.classList.add("reply-form");
     form.innerHTML = `
-      <input class="replyFormName" type="text" name="replyName" placeholder="Ad Soyad" required>
-      <textarea class="replyFormText" name="replyText" rows="3" placeholder="Yanıtınız" required></textarea>
+      <input class="replyFormName" type="text" name="replyName" maxlength="40" placeholder="Ad Soyad" required>
+      <textarea class="replyFormText" name="replyText" rows="3" maxlength="150" placeholder="Yanıtınız" required></textarea>
       <button class="replyFormBtn" type="submit">Gönder</button>
     `;
 
@@ -116,7 +116,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       const inputName = sanitize(form.replyName.value);
       const inputMessage = sanitize(form.replyText.value);
       if (!inputName || !inputMessage) return;
+      if (inputName.length > 40) {
+        alert("İsim 40 karakterden uzun olamaz.");
+        return;
+      }
 
+      if (inputMessage.length > 150) {
+        alert("Yanıt 150 karakterden uzun olamaz.");
+        return;
+      }
       try {
         const res = await axios.post(`https://www.eumaps.org/api/kac-milyon/save-reply`, {
           inputName,

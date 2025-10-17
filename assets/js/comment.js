@@ -1,7 +1,7 @@
-// comment.js
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("comment-form");
   const responseBox = document.getElementById("comment-response");
+  const commentList = document.getElementById("comment-list"); // 👈 add this
   if (!form || !responseBox) return;
 
   // --- Detect pageId dynamically ---
@@ -28,6 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    if (inputName.length > 40) {
+      responseBox.textContent = "İsim 40 karakterden uzun olamaz.";
+      responseBox.style.color = "red";
+      return;
+    }
+
+    if (inputMessage.length > 200) {
+      responseBox.textContent = "Mesaj 200 karakterden uzun olamaz.";
+      responseBox.style.color = "red";
+      return;
+    }
+
     if (!pageId) {
       responseBox.textContent = "Sayfa kimliği bulunamadı.";
       responseBox.style.color = "red";
@@ -44,6 +56,26 @@ document.addEventListener("DOMContentLoaded", () => {
       if (res.data.resStatus) {
         responseBox.textContent = "Yorumunuz kaydedildi, teşekkürler!";
         responseBox.style.color = "green";
+
+        // --- Add comment immediately to the list ---
+        if (commentList) {
+          const newComment = document.createElement("div");
+          newComment.classList.add("comment-item");
+
+          const formattedDate = new Date().toLocaleDateString("tr-TR");
+          newComment.innerHTML = `
+            <div class="comment-item-header"> 
+              <div class="comment-author">${sanitize(inputName)}</div>
+              <div class="comment-date">${formattedDate}</div>
+            </div>
+            <div class="comment-text">${sanitize(inputMessage)}</div>
+            <button class="reply-btn" data-id="temp-${Date.now()}">Yanıtla</button>
+            <div class="reply-section"></div>
+            <div class="reply-list"></div>
+          `;
+          commentList.prepend(newComment); // 👈 add to top
+        }
+
         form.reset();
       } else {
         responseBox.textContent = res.data.resMessage || "Yorum kaydedilemedi.";
@@ -55,4 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
       responseBox.style.color = "red";
     }
   });
+
+  // --- Simple sanitizer (same as display.js) ---
+  function sanitize(str) {
+    if (typeof str !== "string") return "";
+    return str.replace(/</g, "&lt;").replace(/>/g, "&gt;").trim();
+  }
 });

@@ -52,10 +52,10 @@
             <h3>Yorum Bırakın</h3>
             <form id="comment-form">
                 <label for="name">Ad Soyad:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" maxlength="40" required>
                 
                 <label for="message">Mesaj:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <textarea id="message" name="message" rows="5" maxlength="240" required></textarea>
                 
                 <button type="submit">Gönder</button>
             </form>
