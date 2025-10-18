@@ -10,36 +10,57 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // Helper to populate districts table
-  const populateDistrictsTable = (districts) => {
+  // Helper to populate districts table (with province total row on top)
+  const populateDistrictsTable = (districts, provinceData) => {
     tbody.innerHTML = '';
 
-    if (!districts || districts.length === 0) {
+    if ((!districts || districts.length === 0) && !provinceData) {
       tbody.innerHTML = '<tr><td colspan="9">No district data available</td></tr>';
       return;
     }
 
-    const name = districts[0]?.provincename || 'Unknown Province';
+    const name = districts?.[0]?.provincename || provinceData?.provincename || 'Unknown Province';
     provinceLabel.textContent = name;
 
-    districts.forEach((district) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
+    // 🔹 Add province total row (same structure, empty district cell)
+    if (provinceData) {
+      const totalTr = document.createElement('tr');
+      totalTr.classList.add('province-total-row');
+      totalTr.innerHTML = `
         <td></td>
-        <td>${district.provincename || ''}</td>
-        <td>${district.districtname || ''}</td>
-        <td>${formatNumber(district['2024'] || '')}</td>
-        <td>${formatNumber(district['2023'] || '')}</td>
-        <td>${formatNumber(district['2022'] || '')}</td>
-        <td>${formatNumber(district['2015'] || '')}</td>
-        <td>${formatNumber(district['2011'] || '')}</td>
-        <td>${formatNumber(district['2007'] || '')}</td>
+        <td class="provinceNameCell">${provinceData.provincename || ''}</td>
+        <td></td>
+        <td>${formatNumber(provinceData['2024'] || '')}</td>
+        <td>${formatNumber(provinceData['2023'] || '')}</td>
+        <td>${formatNumber(provinceData['2022'] || '')}</td>
+        <td>${formatNumber(provinceData['2015'] || '')}</td>
+        <td>${formatNumber(provinceData['2011'] || '')}</td>
+        <td>${formatNumber(provinceData['2007'] || '')}</td>
       `;
-      tr.addEventListener('click', () => {
-        window.location.href = `http://127.0.0.1:8080/ilce-nufus.html?districtId=${district.id}`;
+      tbody.appendChild(totalTr);
+    }
+
+    // 🔹 Add district rows
+    if (districts && districts.length > 0) {
+      districts.forEach((district) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td></td>
+          <td>${district.provincename || ''}</td>
+          <td>${district.districtname || ''}</td>
+          <td>${formatNumber(district['2024'] || '')}</td>
+          <td>${formatNumber(district['2023'] || '')}</td>
+          <td>${formatNumber(district['2022'] || '')}</td>
+          <td>${formatNumber(district['2015'] || '')}</td>
+          <td>${formatNumber(district['2011'] || '')}</td>
+          <td>${formatNumber(district['2007'] || '')}</td>
+        `;
+        tr.addEventListener('click', () => {
+          window.location.href = `http://127.0.0.1:8080/ilce-nufus.html?districtId=${district.id}`;
+        });
+        tbody.appendChild(tr);
       });
-      tbody.appendChild(tr);
-    });
+    }
   };
 
   // Helper to populate annual table (province population and foreigners by year)
@@ -51,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Generate all years from 2024 down to 2007 (reversed order: 2024 first)
     const years = [];
     for (let year = 2024; year >= 2007; year--) {
       years.push(year.toString());
@@ -68,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Helper to populate origins table (people from selected province living in other provinces)
+  // Helper to populate origins table
   const populateOriginsTable = (originsData) => {
     originsTbody.innerHTML = '';
 
@@ -78,30 +98,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const originName = originsData.provincename || 'Unknown Province';
-
-    // Update the dynamic header for the third column (e.g., "Mersinliler")
     const header = document.querySelector('.province-origins-table thead tr th:nth-child(3)');
     if (header) {
       const lastTwoChars = originName.slice(-2).toLowerCase();
-      let suffix = 'liler'; // default
-      if (lastTwoChars.includes('a') || lastTwoChars.includes('ı')) {
-        suffix = 'lılar';
-      } else if (lastTwoChars.includes('e') || lastTwoChars.includes('i')) {
-        suffix = 'liler';
-      } else if (lastTwoChars.includes('ö') || lastTwoChars.includes('ü')) {
-        suffix = 'lüler';
-      } else if (lastTwoChars.includes('o') || lastTwoChars.includes('u')) {
-        suffix = 'lular';
-      }
+      let suffix = 'liler';
+      if (lastTwoChars.includes('a') || lastTwoChars.includes('ı')) suffix = 'lılar';
+      else if (lastTwoChars.includes('e') || lastTwoChars.includes('i')) suffix = 'liler';
+      else if (lastTwoChars.includes('ö') || lastTwoChars.includes('ü')) suffix = 'lüler';
+      else if (lastTwoChars.includes('o') || lastTwoChars.includes('u')) suffix = 'lular';
       header.textContent = `${originName}${suffix}`;
       originsTitle.textContent = `${originName}${suffix} en çok hangi ilde yaşıyor?`;
     }
 
-
-
-    // Filter entries to only residence provinces (exclude basic info and total)
-    const entries = Object.entries(originsData).filter(([key]) => 
-      !['provinceid', 'provincename', 'originPopulation'].includes(key)
+    const entries = Object.entries(originsData).filter(
+      ([key]) => !['provinceid', 'provincename', 'originPopulation'].includes(key)
     );
 
     if (entries.length === 0) {
@@ -109,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Already sorted descending by the backend
     entries.forEach(([residenceName, count], index) => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
@@ -121,13 +130,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Helper to format numbers Turkish-style (e.g., 1234567 → 1.234.567)
+  // Format numbers
   const formatNumber = (value) => {
     if (!value || isNaN(parseInt(value))) return '';
     return parseInt(value).toLocaleString('tr-TR');
   };
 
-  // Helper to fetch and populate all tables (concurrent requests)
+  // Fetch and populate
   const fetchAndPopulate = async (provinceId) => {
     if (!provinceId) {
       console.warn('No provinceId provided');
@@ -150,27 +159,30 @@ document.addEventListener('DOMContentLoaded', () => {
         axios.get(originsUrl)
       ]);
 
-      // Handle districts table
+      // 🔹 Districts + Province total
       if (districtsRes.data.resStatus) {
-        populateDistrictsTable(districtsRes.data.resData);
+        populateDistrictsTable(districtsRes.data.resData, provinceRes?.data?.resData);
       } else {
         console.warn('Districts API error:', districtsRes.data.resMessage);
         tbody.innerHTML = `<tr><td colspan="9">${districtsRes.data.resMessage || 'Districts data not found'}</td></tr>`;
       }
 
-      // Handle annual table
+      // 🔹 Annual data
       if (provinceRes.data.resStatus && foreignersRes.data.resStatus) {
         populateAnnualTable(provinceRes.data.resData, foreignersRes.data.resData);
       } else {
-        console.warn('Annual API error:', { province: provinceRes.data.resMessage, foreigners: foreignersRes.data.resMessage });
+        console.warn('Annual API error:', {
+          province: provinceRes.data.resMessage,
+          foreigners: foreignersRes.data.resMessage
+        });
         let msg = 'Annual data not available';
         if (!provinceRes.data.resStatus) msg += ' - Population data missing';
         if (!foreignersRes.data.resStatus) msg += ' - Foreigners data missing';
         annualTbody.innerHTML = `<tr><td colspan="3">${msg}</td></tr>`;
       }
 
-      // Handle origins table
-      if (originsRes.data.resStatus && originsRes.data.resData && originsRes.data.resData.length > 0) {
+      // 🔹 Origins data
+      if (originsRes.data.resStatus && originsRes.data.resData?.length > 0) {
         populateOriginsTable(originsRes.data.resData[0]);
       } else {
         console.warn('Origins API error:', originsRes.data.resMessage);
@@ -184,14 +196,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Auto-load from URL params
+  // Auto-load
   const urlParams = new URLSearchParams(window.location.search);
   const urlProvinceId = urlParams.get('provinceId');
   if (urlProvinceId) {
     console.log('Auto-loading from URL:', urlProvinceId);
     fetchAndPopulate(urlProvinceId);
   } else {
-    // Initial placeholders
     tbody.innerHTML = '<tr><td colspan="9">Select a province on the map or add ?provinceId=34 to URL</td></tr>';
     annualTbody.innerHTML = '<tr><td colspan="3">Select a province to view annual population data</td></tr>';
     originsTbody.innerHTML = '<tr><td colspan="3">Select a province to view origins distribution</td></tr>';

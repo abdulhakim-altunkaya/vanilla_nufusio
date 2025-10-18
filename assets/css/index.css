@@ -27,9 +27,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Libertinus+Keyboard&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
 /*Nunito Maven Pro Righteous Monda Concert One Courgette Fredoka One Lobster Nerko One Poppins Playwrite HU Audiowide
 Baumans*/
-/*Agbalumo     Style Script     Bungee Tint  Syne Mono  Paytone One  Carter One   Nunito  DM Sans   Libertinus Keyboard
+/*Agbalumo     Style Script     Bungee Tint  Syne Mono  Paytone One  Carter One Yatra One
+  Nunito  DM Sans   Libertinus Keyboard
    Plus Jakarta    Manrope   Pattaya*/
 
 @media (min-width: 781px) { 
@@ -80,6 +82,16 @@ Baumans*/
             text-align: center;
         }
         .map-container h1 {
+            font-family: "Paytone One";
+        }
+        .map-container h2 {
+            font-size: 24px;
+            width: 20%;
+            margin: auto;
+            padding: 8px;
+            border-radius: 8px;
+            background-color: #FCF951;
+            color: #422057;
             font-family: "Paytone One";
         }
         .mainTable {

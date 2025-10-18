@@ -42,7 +42,9 @@
       cursor: pointer;
       background-color: lightsteelblue;
     }
-
+.provinceNameCell{
+  font-weight: bold;
+}
     /* Small responsive tweak */
     @media (max-width: 600px) {
       .province-districts-table thead { display: none; }
