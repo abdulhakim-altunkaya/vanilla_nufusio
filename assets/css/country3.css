@@ -1,7 +1,7 @@
     /* Table reset + layout */
     .countryTableArea3 {
-        width: 40%;
-        margin-left: 65px;
+        width: 30%;
+        margin-left: 65px; 
     }
 
     .countryTableArea3 h3 {
@@ -11,10 +11,8 @@
         
     .country-civil-status-table { 
       width: 100%;
-      border-collapse: collapse;
+      border:3px solid white;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background: #fff;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.14);
     }
 
     /* Header */
@@ -23,8 +21,8 @@
       padding: 10px 12px;
       border-bottom: 2px solid #e6e6e6;
       font-weight: 600;
-      background: rgb(82, 5, 40);
-      color: white;
+      background: #02343F;
+      color:#F0EDCC;
       font-weight: bold;
     }
 
@@ -33,14 +31,41 @@
       padding: 10px 12px;
       border-bottom: 1px solid #f0f0f0;
     }
+    .country-civil-status-table tbody tr {
+      background-color: #F0EDCC;
+      color: #02343F;
+    }
 
-    /* Zebra striping */
-    .country-civil-status-table tbody tr:nth-child(odd) {
-      background: #ffffff;
-    }
-    .country-civil-status-table tbody tr:nth-child(even) {
-      background: #f5f5d5;
-    }
+/*
+
+.country-civil-status-table tbody td {
+  /* Move background color from <tr> to <td> 
+  background-color: #F0EDCC; /* <--- New location for the background color 
+  color: #02343F;            /* <--- New location for the text color 
+  
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  
+  /* Required for clip-path to work consistently 
+  overflow: hidden;
+
+  /* The clip-path for the sharp, clipped corner 
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 15px), /* 10px up from the bottom-right 
+    calc(100% - 15px) 100%, /* 10px left from the bottom-right 
+    0 100%
+  );
+}
+*/
+
+/* Updated <tr> rule (now simplified) */
+.country-civil-status-table tbody tr {
+  /* Remove background/color to prevent it from bleeding through the clipped area */
+  /* Remove or comment out: background-color: #F0EDCC; */ 
+  /* Remove or comment out: color: #02343F; */ 
+}
 
     /* Small responsive tweak */
     @media (max-width: 600px) {

@@ -94,11 +94,19 @@ Baumans*/
             color: #422057;
             font-family: "Paytone One";
         }
+        .mainTableSmall {
+            display: none;
+        }
         .mainTable {
             width: 90%;
             margin: auto;
         }
         .twoTables {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        .twoTablesCountry {
             width: 100%;
             display: flex;
             flex-direction: row;
@@ -126,9 +134,98 @@ Baumans*/
 
 }
 @media (max-width: 780px) {
+    body, html {
+        font-family: "Nunito", sans-serif;
+        margin-top: 0px;
+        padding-top: 0px;
+    }  
+    .container {
+        width: 100%;
+        margin: auto;
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        min-height: 100vh;
+    }
+    .container a {
+        text-decoration: none;
+    }
+    header {
+        margin: 0px;
+        padding: 10px;
+        font-size: 15px;
+    }
+    header h1 {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Carter One";
+        font-size: 23px;
+    }
+    .titleText {
+        font-family: "Carter One", 'Trebuchet MS';
+        padding: 3px 8px;
+        color: #0A174E;
+        background-color: #F5D042;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .map-container {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
 
-    /* Hover color will be applied dynamically via JS */
+    .map-container h1 {
+        font-family: "Paytone One";
+        font-size: 18px;
+        padding: 10px;
+        margin: 5px;
+    }
+    #svg-display {
+        width: 350px;
+    } 
+    .map-container h2 {
+        font-size: 16px;
+        width: 40%;
+        margin: auto;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #FCF951;
+        color: #422057;
+        font-family: "Paytone One";
+    }
+    .mainTable {
+        width: 100%;
+        margin: auto;
+        font-size: 13px;
+    }
 
-    
-
+    .twoTables {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .twoTablesCountry {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .footerArea {
+        margin-top: 20px;
+        padding: 5px;
+        border-top:#000000 5px double;
+        display: flex;
+        flex-direction: row;
+        font-family: "Maven Pro";
+        font-size: 12px;
+    }
+    .footerArea p {
+        margin-left: 10px;
+    }
+    .footerIcon {
+        width: 110px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(71, 69, 58, 0.6); /* yellowish shadow */
+    }
 }
