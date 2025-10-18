@@ -1,18 +1,12 @@
-    /* Table reset + layout */
+@media (min-width: 781px) {
     .countryTableArea3 {
         width: 30%;
         margin-left: 65px; 
+        font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     }
-
-    .countryTableArea3 h3 {
-      font-family: "Maven Pro";
-    }
-
-        
     .country-civil-status-table { 
       width: 100%;
       border:3px solid white;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     }
 
     /* Header */
@@ -35,51 +29,39 @@
       background-color: #F0EDCC;
       color: #02343F;
     }
-
-/*
-
-.country-civil-status-table tbody td {
-  /* Move background color from <tr> to <td> 
-  background-color: #F0EDCC; /* <--- New location for the background color 
-  color: #02343F;            /* <--- New location for the text color 
-  
-  padding: 10px 12px;
-  border-bottom: 1px solid #f0f0f0;
-  
-  /* Required for clip-path to work consistently 
-  overflow: hidden;
-
-  /* The clip-path for the sharp, clipped corner 
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - 15px), /* 10px up from the bottom-right 
-    calc(100% - 15px) 100%, /* 10px left from the bottom-right 
-    0 100%
-  );
-}
-*/
-
-/* Updated <tr> rule (now simplified) */
-.country-civil-status-table tbody tr {
-  /* Remove background/color to prevent it from bleeding through the clipped area */
-  /* Remove or comment out: background-color: #F0EDCC; */ 
-  /* Remove or comment out: color: #02343F; */ 
 }
 
     /* Small responsive tweak */
-    @media (max-width: 600px) {
-      .country-civil-status-table thead { display: none; }
-      .country-civil-status-table, .country-civil-status-table tbody, .country-civil-status-table tr, .country-civil-status-table td { display: block; width: 100%; }
-      .country-civil-status-table td {
-        box-sizing: border-box;
-        padding: 8px;
-        border-bottom: 1px solid #eee;
-      }
-      .country-civil-status-table td::before {
-        content: attr(data-label);
-        display: block;
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
-    }
+@media (max-width: 780px) {
+.countryTableArea3 {
+    width: 98%;
+    font-family: "Manrope";
+}
+
+.country-civil-status-table { 
+  width: 100%;
+  border: 3px solid white;
+  font-size: 14px;
+}
+
+/* Header */
+.country-civil-status-table thead th {
+  text-align: left;
+  padding: 5px 6px;
+  background: #02343F;
+  color:#F0EDCC;
+  font-weight: bold;
+}
+
+/* Body rows */
+.country-civil-status-table tbody td {
+  padding: 5px 6px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.country-civil-status-table tbody tr {
+    color: #02343F;
+    background:#F0EDCC;
+}
+
+}

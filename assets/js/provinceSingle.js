@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 🔹 Add district rows
     if (districts && districts.length > 0) {
-      districts.forEach((district) => {
+      districts.forEach((district, index) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td></td>
+          <td>${index + 1}</td>
           <td>${district.provincename || ''}</td>
           <td>${district.districtname || ''}</td>
           <td>${formatNumber(district['2024'] || '')}</td>

@@ -179,7 +179,7 @@ Baumans*/
     .map-container h1 {
         font-family: "Paytone One";
         font-size: 18px;
-        padding: 10px;
+        padding: 10px; 
         margin: 5px;
     }
     #svg-display {
@@ -212,7 +212,7 @@ Baumans*/
         flex-direction: column;
     }
     .footerArea {
-        margin-top: 20px;
+        margin-top: 40px;
         padding: 5px;
         border-top:#000000 5px double;
         display: flex;

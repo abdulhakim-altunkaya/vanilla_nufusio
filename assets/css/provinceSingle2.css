@@ -1,18 +1,12 @@
-    /* Table reset + layout */
+@media (min-width: 781px) { 
     .provinceAnnualTableArea {
         width: 30%;
         margin-left: 65px;
+        font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     }
-
-    .provinceAnnualTableArea h3 {
-      font-family: "Maven Pro";
-    }
-
-        
     .province-annual-table { 
       width: 100%;
       border: 3px solid white;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
       background: #fff;
     }
 
@@ -36,27 +30,37 @@
       background: #F5D042;
       color: #0A174E;
     }
-/*
-    .province-annual-table tbody tr:nth-child(odd) {
-      background: #ffffff;
-    }
-    .province-annual-table tbody tr:nth-child(even) {
-      background: #f5f5d5;
-    }
-*/
-    /* Small responsive tweak */
-    @media (max-width: 600px) {
-      .province-annual-table thead { display: none; }
-      .province-annual-table, .province-annual-table tbody, .province-annual-table tr, .province-annual-table td { display: block; width: 100%; }
-      .province-annual-table td {
-        box-sizing: border-box;
-        padding: 8px;
-        border-bottom: 1px solid #eee;
-      }
-      .province-annual-table td::before {
-        content: attr(data-label);
-        display: block;
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
-    }
+  }
+/* Small responsive tweak */
+@media (max-width: 780px) {
+  .provinceAnnualTableArea {
+      width: 98%;
+      font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  }
+  .province-annual-table { 
+    width: 100%;
+    border: 3px solid white;
+    font-size: 14px;
+  }
+
+  /* Header */
+  .province-annual-table thead th {
+    text-align: left;
+    padding: 5px 6px;
+    background: #0A174E;
+    color: #F5D042;
+    font-weight: bold;
+  }
+
+  /* Body rows */
+  .province-annual-table tbody td {
+    padding: 5px 6px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .province-annual-table tbody tr {
+    background: #F5D042;
+    color: #0A174E;
+  }
+
+}

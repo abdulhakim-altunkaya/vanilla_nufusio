@@ -1,15 +1,12 @@
-    /* Table reset + layout */
+@media (min-width: 781px) { 
     .provinceOriginsTableArea {
         width: 30%;
         margin-left: 65px;
-    }
-    .provinceOriginsTableArea h3 {
-      font-family: "Maven Pro";
+        font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     }
     .province-origins-table { 
       width: 100%;
       border:3px solid white;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
       background: #fff;
     }
 
@@ -33,28 +30,37 @@
       background-color: #F0EDCC;
       color: #02343F;
     }
+}
+@media (max-width: 780px) {
+.provinceOriginsTableArea {
+    width: 98%;
+    font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
 
-    /*
-   .province-origins-table tbody tr:nth-child(odd) {
-      background: #ffffff;
-    }
-    .province-origins-table tbody tr:nth-child(even) {
-      background: #f5f5d5;
-    } */
+.province-origins-table { 
+  width: 100%;
+  border: 3px solid white;
+  font-size: 14px;
+}
 
-    /* Small responsive tweak */
-    @media (max-width: 600px) {
-      .province-origins-table thead { display: none; }
-      .province-origins-table, .province-origins-table tbody, .province-origins-table tr, .province-origins-table td { display: block; width: 100%; }
-      .province-origins-table td {
-        box-sizing: border-box;
-        padding: 8px;
-        border-bottom: 1px solid #eee;
-      }
-      .province-origins-table td::before {
-        content: attr(data-label);
-        display: block;
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
-    }
+/* Header */
+.province-origins-table thead th {
+  text-align: left;
+  padding: 5px 6px;
+  background: #02343F;
+  color:#F0EDCC;
+  font-weight: bold;
+}
+
+/* Body rows */
+.province-origins-table tbody td {
+  padding: 5px 6px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.province-origins-table tbody tr {
+    color: #02343F;
+    background:#F0EDCC;
+}
+
+}
