@@ -36,7 +36,7 @@ async function fetchDistrictData(districtId, tableBody, tableHeader) {
 
     // ✅ Update header with district name if available
     if (district.districtname && tableHeader) {
-      tableHeader.textContent = `Yıllara göre <strong>${district.districtname}</strong> / ${district.provincename} nüfusu`;
+      tableHeader.textContent = `Yıllara göre ${district.districtname} / ${district.provincename} nüfusu`;
     }
 
     const yearEntries =
