@@ -1,0 +1,84 @@
+/* Media query for big screens */
+@media (min-width: 781px) {
+    .aboutArea {
+        width: 90%;
+        margin: auto;
+        font-family: "Maven Pro", "Manrope", sans-serif;
+    }
+    .aboutArea a {
+        text-decoration: none;
+    }
+    .portfolio a {
+        text-decoration: none;
+        color: black;
+    }
+    .portfolio ul {
+        list-style: none; /* Removes bullets */
+    }
+    .portfolio li {
+        padding: 10px;
+        cursor: pointer;
+    }
+    .portfolio li:hover {
+        margin-left: 10px;
+        background-color: lightyellow;
+    }
+    .livorentList {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .flagIcon {
+        width: 30px;
+    }
+    .aboutLogo {
+        width: 220px;
+        border-radius: 3px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 780px) {
+    .aboutArea {
+        width: 90%;
+        margin: auto;
+        text-align: justify;
+        font-family: "Maven Pro", "Manrope", sans-serif;
+        font-size: 13px;
+    }
+    .aboutArea p, .aboutArea li {
+        font-size: 13px;
+    }
+    .portfolio a {
+        text-decoration: none;
+        color: black;
+    }
+    .portfolio ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none; /* Removes bullets */
+    }
+    .portfolio li {
+      padding-top: 10px;
+      cursor: pointer;
+      text-align: justify;
+    }
+    .livorentList {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .flagIcon {
+        display: none;
+    }
+    .aboutLogoDiv {
+        width: 100%;
+    }
+    .aboutLogo {
+        width: 150px;
+        margin: auto;
+        border-radius: 3px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
