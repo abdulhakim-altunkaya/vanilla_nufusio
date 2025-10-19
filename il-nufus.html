@@ -1,24 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaç Milyon?</title>
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
-    <link rel="stylesheet" href="./assets/css/index.css">
-    <link rel="stylesheet" href="./assets/css/table.css">
-    <link rel="stylesheet" href="./assets/css/provinceSingle.css">
-    <link rel="stylesheet" href="./assets/css/provinceSingle2.css">
-    <link rel="stylesheet" href="./assets/css/provinceSingle3.css">
-    <link rel="stylesheet" href="./assets/css/comment.css">
-    <link rel="stylesheet" href="./assets/css/commentDisplay.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./assets/js/index.js" defer></script>
-    <script src="./assets/js/map-interactions.js" defer></script>
-    <script src="./assets/js/provinceSingle.js" defer></script>
-    <script src="./assets/js/commentDisplay.js" defer></script>
-    <script src="./assets/js/comment.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>İl Nüfusları | Türkiye Nüfus Haritası | Kaç Milyon?</title>
+  <meta name="description" content="Kaç Milyon? Türkiye'nin il bazında nüfus verilerini ve dağılımını 
+  gösteren interaktif harita. TÜİK verileriyle güncel illere göre nüfus bilgileri.">
+  <meta name="keywords" content="il nüfusu, Türkiye nüfus haritası, illere göre nüfus, TÜİK verileri, 
+  kaç milyon, province population Turkey, Turkish demographics">
+  <meta name="author" content="Tory Software Solutions">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://kacmilyon.com/il-nufus.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="İl Nüfusları | Türkiye Nüfus Haritası | Kaç Milyon?">
+  <meta property="og:description" content="Türkiye'nin illere göre nüfus haritası. TÜİK verileriyle 
+  hazırlanmış güncel il nüfus dağılımı.">
+  <meta property="og:url" content="https://kacmilyon.com/il-nufus.html">
+  <meta property="og:image" content="https://kacmilyon.com/assets/images/favicon.png">
+  <meta property="og:locale" content="tr_TR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="İl Nüfusları | Türkiye Nüfus Haritası">
+  <meta name="twitter:description" content="İllere göre Türkiye nüfusu. TÜİK verileriyle hazırlanmış 
+  interaktif harita ve tablo.">
+  <meta name="twitter:image" content="https://kacmilyon.com/assets/images/favicon.png">
+
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="./assets/css/table.css">
+  <link rel="stylesheet" href="./assets/css/provinceSingle.css">
+  <link rel="stylesheet" href="./assets/css/provinceSingle2.css">
+  <link rel="stylesheet" href="./assets/css/provinceSingle3.css">
+  <link rel="stylesheet" href="./assets/css/comment.css">
+  <link rel="stylesheet" href="./assets/css/commentDisplay.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./assets/js/index.js" defer></script>
+  <script src="./assets/js/map-interactions.js" defer></script>
+  <script src="./assets/js/provinceSingle.js" defer></script>
+  <script src="./assets/js/commentDisplay.js" defer></script>
+  <script src="./assets/js/comment.js" defer></script>
 </head>
+
 <body>
     <main class="container">
         <header>
