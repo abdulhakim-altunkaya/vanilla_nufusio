@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <td>${formatNumber(district['2007'] || '')}</td>
         `;
         tr.addEventListener('click', () => {
-          window.location.href = `http://127.0.0.1:8080/ilce-nufus.html?districtId=${district.id}`;
+          window.location.href = `https://kacmilyon.com/ilce-nufus.html?districtId=${district.id}`;
         });
         tbody.appendChild(tr);
       });
