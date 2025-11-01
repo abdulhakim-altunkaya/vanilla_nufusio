@@ -208,10 +208,13 @@ document.addEventListener('DOMContentLoaded', () => {
     originsTbody.innerHTML = '<tr><td colspan="3">Select a province to view origins distribution</td></tr>';
   }
 
-  // Listen for map events
-  document.addEventListener('provinceSelected', async (event) => {
+  let provinceFetchTimeout;
+  document.addEventListener('provinceSelected', (event) => {
     const { provinceId } = event.detail;
-    console.log('Map event received:', provinceId);
-    fetchAndPopulate(provinceId);
+    console.log('Map event received (debounced):', provinceId);
+    clearTimeout(provinceFetchTimeout);
+    provinceFetchTimeout = setTimeout(() => {
+      fetchAndPopulate(provinceId);
+    }, 500); // wait 0.5s before firing, reset if triggered again
   });
 });
