@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const item = document.createElement("div");
         item.classList.add("comment-item");
 
-        const commentReplies = getReplies(comment.id);
+        const commentReplies = getReplies(comment.id).reverse();
 
         item.innerHTML = `
           <div class="comment-item-header"> 
