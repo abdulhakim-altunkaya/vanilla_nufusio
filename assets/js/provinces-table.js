@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
           ${province.provincename}
         </a>
         </td>
+        <td>${formatNumber(province["2025"])}</td>
         <td>${formatNumber(province["2024"])}</td>
         <td>${formatNumber(province["2023"])}</td>
-        <td>${formatNumber(province["2022"])}</td>
         <td>${formatNumber(province["2015"])}</td>
         <td>${formatNumber(province["2011"])}</td>
         <td>${formatNumber(province["2007"])}</td>

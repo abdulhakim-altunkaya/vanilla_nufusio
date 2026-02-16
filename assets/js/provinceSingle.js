@@ -43,9 +43,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           <td></td>
           <td class="provinceNameCell">${provinceData.provincename}</td>
           <td></td>
+          <td>${formatNumber(provinceData['2025'])}</td>
           <td>${formatNumber(provinceData['2024'])}</td>
           <td>${formatNumber(provinceData['2023'])}</td>
-          <td>${formatNumber(provinceData['2022'])}</td>
           <td>${formatNumber(provinceData['2015'])}</td>
           <td>${formatNumber(provinceData['2011'])}</td>
           <td>${formatNumber(provinceData['2007'])}</td>
@@ -60,9 +60,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             <td>${i + 1}</td>
             <td>${d.provincename}</td>
             <td>${d.districtname}</td>
+            <td>${formatNumber(d['2025'])}</td>
             <td>${formatNumber(d['2024'])}</td>
             <td>${formatNumber(d['2023'])}</td>
-            <td>${formatNumber(d['2022'])}</td>
             <td>${formatNumber(d['2015'])}</td>
             <td>${formatNumber(d['2011'])}</td>
             <td>${formatNumber(d['2007'])}</td>
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const foreignersData = foreignersRes.data.resData;
 
       const years = [];
-      for (let y = 2024; y >= 2007; y--) years.push(String(y));
+      for (let y = 2025; y >= 2007; y--) years.push(String(y));
 
       annualTbody.innerHTML = '';
       years.forEach((year) => {
